@@ -1,14 +1,14 @@
 export default function Rodape() {
-    const  icones = ["home", "search-outline", "add-circle-outline", "heart-outline", "person-outline"] 
+    const  icons = ["home", "search-outline", "add-circle-outline", "heart-outline", "person-outline"] 
     return (
         <div class="fundo-mobile">
-            {icones.map(icone => <IconesRodape nomeIcone={icone} />)}
+            {icons.map(icon => <FooterIcon IconName={icon} />)}
         </div>
     )
 }
 
-function IconesRodape(props) {
+function FooterIcon(props) {
     return (
-        <ion-icon name={props.nomeIcone}></ion-icon>
+        <ion-icon name={props.IconName}></ion-icon>
     )
 }
