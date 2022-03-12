@@ -1,79 +1,82 @@
 export default function Posts() {
+    const infos = [
+        { user: "meowed", picture: "gato-telefone", likedBy: "respondeai", likedQt: "101.523" },
+        { user: "barked", picture: "dog", likedBy: "adorable_animals", likedQt: "99.159" },
+    ]
     return (
         <div class="posts">
-            <div class="post">
-                <div class="topo">
-                    <div class="usuario">
-                        <img src="./img/meowed.svg" />
-                        meowed
-                    </div>
-                    <div class="acoes">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
-                    </div>
-                </div>
+            {infos.map(Post)}
+        </div>
+    )
+}
 
-                <div class="conteudo">
-                    <img src="./img/gato-telefone.svg" />
-                </div>
 
-                <div class="fundo">
-                    <div class="acoes">
-                        <div>
-                            <ion-icon name="heart-outline"></ion-icon>
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                            <ion-icon name="paper-plane-outline"></ion-icon>
-                        </div>
-                        <div>
-                            <ion-icon name="bookmark-outline"></ion-icon>
-                        </div>
-                    </div>
+function RenderIcons(props) {
+    return (
+        <ion-icon name={props.IconName}></ion-icon>
+    )
+}
 
-                    <div class="curtidas">
-                        <img src="./img/respondeai.svg" />
-                        <div class="texto">
-                            Curtido por <strong>respondeai</strong> e
-                            <strong>outras 101.523 pessoas</strong>
-                        </div>
-                    </div>
-                </div>
+function PostHeader({ user }) {
+    return (
+        <div class="topo">
+            <div class="usuario">
+                <img src={`./img/${user}.svg`} />
+                {user}
             </div>
-
-            <div class="post">
-                <div class="topo">
-                    <div class="usuario">
-                        <img src="./img/barked.svg" />
-                        barked
-                    </div>
-                    <div class="acoes">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="conteudo">
-                    <img src="./img/dog.svg" />
-                </div>
-
-                <div class="fundo">
-                    <div class="acoes">
-                        <div>
-                            <ion-icon name="heart-outline"></ion-icon>
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                            <ion-icon name="paper-plane-outline"></ion-icon>
-                        </div>
-                        <div>
-                            <ion-icon name="bookmark-outline"></ion-icon>
-                        </div>
-                    </div>
-
-                    <div class="curtidas">
-                        <img src="./img/adorable_animals.svg" />
-                        <div class="texto">
-                            Curtido por <strong>adorable_animals</strong> e
-                            <strong>outras 99.159 pessoas</strong>
-                        </div>
-                    </div>
-                </div>
+            <div class="acoes">
+                <RenderIcons IconName="ellipsis-horizontal" />
             </div>
         </div>
+    )
+}
+
+function Content({ picture }) {
+    return (
+        <div class="conteudo">
+            <img src={`./img/${picture}.svg`} />
+        </div>
+    )
+}
+
+function Actions() {
+    const icons = ["heart-outline", "chatbubble-outline", "paper-plane-outline"]
+    return (
+        <div class="acoes">
+            <div>
+                {icons.map(icon => <RenderIcons IconName={icon} />)}
+            </div>
+            <div>
+                <RenderIcons IconName="bookmark-outline" />
+            </div>
+        </div>
+    )
+}
+
+function Likes({ likedBy, likedQt }) {
+    return (
+        <div class="curtidas">
+            <img src={`./img/${likedBy}.svg`} />
+            <div class="texto">
+                Curtido por <strong>{likedBy}</strong> e
+                <strong>outras {likedQt} pessoas</strong>
+            </div>
+        </div>
+    )
+}
+
+function Post({ user, picture, likedBy, likedQt }) {
+    return (
+
+        <div class="post">
+            <PostHeader user={user}/>
+            <Content picture={picture}/>
+
+            <div class="fundo">
+                <Actions />
+                <Likes likedBy={likedBy} likedQt={likedQt}/>
+            </div>
+        </div>
+
     )
 }
