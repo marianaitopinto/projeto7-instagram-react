@@ -6,8 +6,8 @@ import Rodape from "./Rodape"
 function App() {
     return (
         <div class="root">
-            <Topo />,
-            <Corpo />,
+            <Topo />
+            <Corpo />
             <Rodape />
         </div>
     )

@@ -1,15 +1,16 @@
 export default function Topo() {
+    const  icones = ["paper-plane-outline", "compass-outline", "heart-outline", "person-outline"];
     return (
         <div class="navbar">
             <div class="container">
                 <div class="logo">
-                    <ion-icon name="logo-instagram"></ion-icon>
+                    <IconesTopo nomeIcone="logo-instagram" />
                     <div class="separador"></div>
                     <img src="img/logo.png" />
                 </div>
 
                 <div class="logo-mobile">
-                    <ion-icon name="logo-instagram"></ion-icon>
+                    <IconesTopo nomeIcone="logo-instagram" />
                 </div>
 
                 <div class="instagram-mobile">
@@ -21,16 +22,19 @@ export default function Topo() {
                 </div>
 
                 <div class="icones">
-                    <ion-icon name="paper-plane-outline"></ion-icon>
-                    <ion-icon name="compass-outline"></ion-icon>
-                    <ion-icon name="heart-outline"></ion-icon>
-                    <ion-icon name="person-outline"></ion-icon>
+                {icones.map(icone => <IconesTopo nomeIcone={icone} />)}
                 </div>
 
                 <div class="icones-mobile">
-                    <ion-icon name="paper-plane-outline"></ion-icon>
+                    <IconesTopo nomeIcone="paper-plane-outline" />
                 </div>
             </div>
         </div>
+    )
+}
+
+function IconesTopo(props) {
+    return (
+        <ion-icon name={props.nomeIcone}></ion-icon>
     )
 }
