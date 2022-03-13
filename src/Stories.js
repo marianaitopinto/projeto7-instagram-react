@@ -10,14 +10,14 @@ export default function Stories() {
     )
 }
 
-function renderStories(UserName) {
+function renderStories(userName) {
     return (
         <div class="story">
             <div class="imagem">
-                <img src={`./img/${UserName}.svg`} />
+                <img src={`./img/${userName}.svg`} />
             </div>
             <div class="usuario">
-                {UserName}
+                {userName}
             </div>
         </div>
     )

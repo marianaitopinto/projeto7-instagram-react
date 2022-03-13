@@ -1,14 +1,14 @@
 import ReactDOM from "react-dom";
-import Topo from "./Topo"
-import Corpo from "./Corpo"
-import Rodape from "./Rodape"
+import Header from "./Header"
+import Body from "./Body"
+import Footer from "./Footer"
 
 function App() {
     return (
         <div class="root">
-            <Topo />
-            <Corpo />
-            <Rodape />
+            <Header />
+            <Body />
+            <Footer />
         </div>
     )
 }
