@@ -1,3 +1,5 @@
+import RenderIcons from "./RenderIcons"
+
 export default function Header() {
     const  icones = ["paper-plane-outline", "compass-outline", "heart-outline", "person-outline"];
     return (
@@ -30,11 +32,5 @@ export default function Header() {
                 </div>
             </div>
         </div>
-    )
-}
-
-function RenderIcons(props) {
-    return (
-        <ion-icon name={props.IconName}></ion-icon>
     )
 }

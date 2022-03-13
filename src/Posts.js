@@ -1,3 +1,5 @@
+import RenderIcons from "./RenderIcons"
+
 export default function Posts() {
     const infos = [
         { user: "meowed", picture: "gato-telefone", likedBy: "respondeai", likedQt: "101.523" },
@@ -10,12 +12,6 @@ export default function Posts() {
     )
 }
 
-
-function RenderIcons(props) {
-    return (
-        <ion-icon name={props.IconName}></ion-icon>
-    )
-}
 
 function PostHeader({ user }) {
     return (
